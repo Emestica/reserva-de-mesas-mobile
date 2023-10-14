@@ -1,0 +1,7 @@
+{
+  "name": "reserva-de-mesas-mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
