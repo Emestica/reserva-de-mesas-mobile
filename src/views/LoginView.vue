@@ -13,16 +13,16 @@
         </ion-card-header>
 
         <ion-card-content>
-          <img class="logo" src="public/LogoP.png">
+          <img class="logo" src="/LogoP.png">
           <ion-item>
-            <ion-input type="text" placeholder="  Usuario" >  <ion-icon :icon="person"></ion-icon></ion-input>
+            <ion-input type="text" placeholder="  Usuario"><ion-icon :icon="person"></ion-icon></ion-input>
           </ion-item>
           <br>
           <ion-item>
             <ion-input type="password" placeholder="  Contraseña">  <ion-icon :icon="lockClosed"></ion-icon></ion-input>
           </ion-item>
           <br>
-          <ion-button full color="primary" @click="login()" class="card-button">Iniciar sesión</ion-button>
+          <ion-button full color="primary" @click="goToPage()" class="card-button" to="/inicio">Iniciar sesión</ion-button>
         </ion-card-content>
       </ion-card>
     </ion-content>
@@ -52,7 +52,14 @@ export default {
       person, lockClosed
 
     }
+  },
+  methods: {
+    goToPage() {
+      // Carga la página 'page2'
+      this.$router.push('/inicio');
+    }
   }
+
 };
 </script>
 
