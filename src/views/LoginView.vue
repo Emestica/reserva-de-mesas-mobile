@@ -17,7 +17,7 @@
           <ion-item>
             <ion-input type="text" placeholder="  Usuario"><ion-icon :icon="person"></ion-icon></ion-input>
           </ion-item>
-          <br>
+          <br><br>
           <ion-item>
             <ion-input type="password" placeholder="  Contraseña">  <ion-icon :icon="lockClosed"></ion-icon></ion-input>
           </ion-item>
