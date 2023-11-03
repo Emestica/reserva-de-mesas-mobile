@@ -6,46 +6,47 @@ import LocalesView from "../views/Cliente/LocalesView.vue"
 import RestauranteView from "../views/Cliente/RestauranteView.vue"
 import MenuView from "../views/Cliente/MenuView.vue"
 import ReservacionView from "../views/Cliente/ReservacionView.vue"
+import TabsPage from '../views/TabsPage.vue'
+
 const routes = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/md-house/inicio'
   },
   {
-    path: '/home',
-    name: 'Home',
-    component: HomePage
-  },
-  {
-    path: '/Login',
-    name: 'LoginView',
-    component: LoginView
-  },
-  {
-    path: '/Inicio',
-    name: 'InicioView',
-    component: InicioView
-  },
-  {
-    path: '/Locales',
-    name: 'LocalesView',
-    component: LocalesView
-  },
-  {
-    path: '/Restaurante',
-    name: 'RestauranteView',
-    component: RestauranteView
-  }, 
-  {
-    path: '/Menu',
-    name: 'MenuView',
-    component: MenuView
-  },
-  {
-    path: '/Reservacion',
-    name: 'ReservacionView',
-    component:ReservacionView
-  },
+    path: '/md-house/',
+    component: TabsPage,
+    children: [
+      {
+        path: '',
+        redirect: '/tabs/inicio'
+      },
+      {
+        path: 'inicio-sesion',
+        component: LoginView
+      },
+      {
+        path: 'inicio',
+        component: InicioView
+      },
+      {
+        path: 'locales',
+        component: LocalesView
+      },
+      {
+        path: 'restaurante',
+        component: RestauranteView
+      }, 
+      {
+        path: 'menu',
+        component: MenuView
+      },
+      {
+        path: 'reservacion',
+        component:ReservacionView
+      },
+    ]
+  }
 ]
 
 const router = createRouter({
