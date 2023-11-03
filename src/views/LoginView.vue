@@ -30,7 +30,13 @@
 </template>
 
 <script>
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardContent, IonItem, IonInput, IonButton, IonImg } from "@ionic/vue";
+import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, 
+  IonIcon,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardSubtitle,
+  IonCardContent,  IonItem, IonInput, IonButton, IonImg } from "@ionic/vue";
 import {person, lockClosed} from "ionicons/icons"
 export default {
   name: "LoginView",
@@ -40,8 +46,12 @@ export default {
     IonToolbar,
     IonTitle,
     IonContent,
+    IonIcon,
     IonCard,
-    IonCardContent,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardSubtitle,
+    IonCardContent, 
     IonItem,
     IonInput,
     IonButton,

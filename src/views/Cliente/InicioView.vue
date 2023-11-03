@@ -70,11 +70,43 @@
   
 
 <script>
-import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCard, IonCol, IonSearchbar} from "@ionic/vue"
+import {
+  IonPage, 
+  IonHeader, 
+  IonToolbar, 
+  IonTitle, 
+  IonContent, 
+  IonGrid, 
+  IonRow, 
+  IonCard, 
+  IonCardHeader,
+  IonCardTitle,
+  IonCardSubtitle,
+  IonCardContent,
+  IonCol,
+  IonSearchbar} from "@ionic/vue"
 export default{
     name:"InicioView",
     components:{
-        IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCard, IonCol, IonSearchbar
+        IonPage, 
+        IonHeader, 
+        IonToolbar, 
+        IonTitle, 
+        IonContent, 
+        IonGrid,
+        IonRow, 
+        IonCard,
+        IonCardHeader,
+        IonCardTitle,
+        IonCardSubtitle,
+        IonCardContent, 
+        IonCol, 
+        IonSearchbar
+    },
+    data(){
+      return {
+        texto: '',
+      }
     },
     methods:{
         goToPage1() {
