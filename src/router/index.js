@@ -22,7 +22,7 @@ const routes = [
         redirect: '/tabs/inicio'
       },
       {
-        path: 'inicio-sesion',
+        path: 'login',
         component: LoginView
       },
       {

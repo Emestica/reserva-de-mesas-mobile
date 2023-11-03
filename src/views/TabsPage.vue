@@ -11,7 +11,7 @@
             <ion-label>Inicio</ion-label>
           </ion-tab-button>
 
-          <ion-tab-button tab="inicio-sesion" href="/md-house/inicio-sesion">
+          <ion-tab-button tab="login" href="/md-house/login">
             <ion-icon aria-hidden="true" :icon="triangle" />
             <ion-label>Inicio Sesion</ion-label>
           </ion-tab-button>
