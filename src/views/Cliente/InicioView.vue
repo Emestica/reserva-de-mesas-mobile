@@ -21,17 +21,36 @@
         </ion-row><br>
     <ion-row>
         
-        <ion-card class="item1" @click="goToPage1()" to="/Restaurante">
+        <ion-card class="item1" @click="goToPage1()" to="/burger">
           <ion-card-header><br><br>
-            <ion-card-title class="title">Restaurantes</ion-card-title><br><br>
+            <ion-card-title class="title">Hamburguesas</ion-card-title><br><br>
           </ion-card-header>
           <ion-card-content>
-            <img src="/public/Restaurante.png" alt="Hamburguesa" />
+            <img src="/public/Hamburguesa.png" alt="Hamburguesa" />
           </ion-card-content>
         </ion-card>
-
         <br><br>
-        <ion-col>
+
+        <ion-card class="item2" @click="goToPage1()" to="/Restaurante">
+          <ion-card-header><br><br>
+            <ion-card-title class="title">Pizzas</ion-card-title><br><br>
+          </ion-card-header>
+          <ion-card-content>
+            <img src="/public/Pizza.png" alt="Hamburguesa" />
+          </ion-card-content>
+        </ion-card>
+        <br><br>
+
+        <ion-card class="item3" @click="goToPage1()" to="/Restaurante">
+          <ion-card-header><br><br>
+            <ion-card-title class="title">Pollo</ion-card-title><br><br>
+          </ion-card-header>
+          <ion-card-content>
+            <img src="/public/Pollo.png" alt="Hamburguesa" />
+          </ion-card-content>
+        </ion-card>
+        <br><br>
+        <!-- <ion-col>
         <ion-card class="item2" @click="goToPage2()" to="/Reservacion">
           <ion-card-header>
             <ion-card-title class="title">Reservacion</ion-card-title>
@@ -59,7 +78,7 @@
             <img src="/public/Menus.png" alt="Menu"/>
           </ion-card-content>
         </ion-card>
-    </ion-col>
+    </ion-col> -->
       
     </ion-row>
   </ion-grid>
@@ -110,7 +129,7 @@ export default{
     },
     methods:{
         goToPage1() {
-      this.$router.push('/Restaurante');
+      this.$router.push('/Burger');
       
     },
     goToPage2() {
@@ -151,19 +170,17 @@ ion-row {
 
 .item2 img {
   width: 100%;
+  height: 200px;
 }
 
 .item3 img {
   width: 100%;
 }
 
-.item4 img {
-  width: 200%;
-}
 
 .item1 {
   width: 280px;
-  height: 480px;
+  height: 350px;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
@@ -174,39 +191,29 @@ ion-row {
 }
 
 .item2 {
-  width: 400px;
-  height: 220px;
+  width: 280px;
+  height: 350px;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
-  margin: 10px;
-  background-color: lightblue;
-  border: 1px solid lightblue;
+  margin: 20px;
+  background-color: orange;
+  border: 1px solid orange;
+  padding: 1px;
 }
 
 .item3 {
   width: 280px;
-  height: 480px;
+  height: 350px;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease-in-out;
-  margin: 10px;
-  background-color: lightsalmon;
-  border: 1px solid lightsalmon;
-  align-self: center;
+  margin: 20px;
+  background-color: orange;
+  border: 1px solid orange;
+  padding: 1px;
 }
 
-.item4 {
-  width: 400px;
-  height: 250px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease-in-out;
-  margin: 10px;
-  background-color: lightslategray;
-  border: 1px solid lightslategray;
-  align-self: center;
-}
 
 .item1:hover,
 .item2:hover,
@@ -224,5 +231,4 @@ ion-row {
 }
 
 </style>
-
 

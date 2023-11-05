@@ -24,6 +24,8 @@
           <br>
           <ion-button full color="primary" @click="goToPage()" class="card-button" to="/inicio">Iniciar sesión</ion-button>
         </ion-card-content>
+        
+        
       </ion-card>
     </ion-content>
   </ion-page>
