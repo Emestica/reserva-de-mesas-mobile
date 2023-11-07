@@ -11,10 +11,10 @@
             <ion-label>Inicio</ion-label>
           </ion-tab-button>
 
-          <ion-tab-button tab="login" href="/md-house/login">
+          <!-- <ion-tab-button tab="login" href="/md-house/login">
             <ion-icon aria-hidden="true" :icon="people" />
             <ion-label>Inicio Sesion</ion-label>
-          </ion-tab-button>
+          </ion-tab-button> -->
   
           <ion-tab-button tab="burger" href="/md-house/burger">
             <ion-icon aria-hidden="true" :icon="restaurant" />
