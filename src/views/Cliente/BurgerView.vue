@@ -35,12 +35,36 @@
   </template>
   
   <script>
-  import {IonPage,IonHeader,IonToolbar,IonTitle} from '@ionic/vue'
+  import {
+    IonPage,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonRow,
+    IonCol,
+    IonCard,
+    IonCardHeader,
+    IonCardContent,
+    IonCardTitle,
+    IonCardSubtitle
+  } from '@ionic/vue'
   
   export default{
       name:'BurgerView',
       components:{
-          IonPage,IonHeader,IonToolbar,IonTitle
+        IonPage,
+        IonHeader,
+        IonToolbar,
+        IonTitle,
+        IonContent,
+        IonRow,
+        IonCol,
+        IonCard,
+        IonCardHeader,
+        IonCardContent,
+        IonCardTitle,
+        IonCardSubtitle
       }
   }
   </script>
