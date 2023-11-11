@@ -5,7 +5,7 @@
               <ion-title> Los mejores restaurantes </ion-title>
           </ion-toolbar>
       </ion-header>
-
+      <ion-content class="container">
       <ion-row>
         
         <ion-card class="item1" to="/burger">
@@ -30,7 +30,7 @@
 
         <br><br>
         </ion-row>
-
+      </ion-content>
   </ion-page>
   </template>
   
