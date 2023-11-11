@@ -1,52 +1,46 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-import HomePage from '../views/HomePage.vue'
-import LoginView from "../views/LoginView.vue"
 import InicioView from "../views/Cliente/InicioView.vue"
-import LocalesView from "../views/Cliente/LocalesView.vue"
-import RestauranteView from "../views/Cliente/RestauranteView.vue"
-import MenuView from "../views/Cliente/MenuView.vue"
-import ReservacionView from "../views/Cliente/ReservacionView.vue"
+import BurgerView from "../views/Cliente/BurgerView.vue"
+import PolloView from "../views/Cliente/PolloView.vue"
+import PizzaView from "../views/Cliente/PizzaView.vue"
 import TabsPage from '../views/TabsPage.vue'
+import LoginView from "../views/LoginView.vue"
 
 const routes = [
-  {
-    path: '/',
-    redirect: '/md-house/inicio'
-  },
+ 
   {
     path: '/md-house/',
     component: TabsPage,
     children: [
-      {
-        path: '',
-        redirect: '/tabs/inicio'
-      },
-      {
-        path: 'login',
-        component: LoginView
-      },
+    
       {
         path: 'inicio',
         component: InicioView
       },
       {
-        path: 'locales',
-        component: LocalesView
+        path: 'burger',
+        component: BurgerView
       },
       {
-        path: 'restaurante',
-        component: RestauranteView
+        path: 'pollo',
+        component: PolloView
       }, 
       {
-        path: 'menu',
-        component: MenuView
-      },
-      {
-        path: 'reservacion',
-        component:ReservacionView
+        path: 'pizza',
+        component: PizzaView
       },
     ]
-  }
+  },
+
+  {
+    path: "/",
+    redirect: "/md-house/login",
+    component:'LoginView'
+  },
+
+
+  
+
 ]
 
 const router = createRouter({

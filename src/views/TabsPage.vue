@@ -7,33 +7,28 @@
         <ion-tab-bar slot="bottom">
 
           <ion-tab-button tab="inicio" href="/md-house/inicio">
-            <ion-icon aria-hidden="true" :icon="triangle" />
+            <ion-icon aria-hidden="true" :icon="home" />
             <ion-label>Inicio</ion-label>
           </ion-tab-button>
 
-          <ion-tab-button tab="login" href="/md-house/login">
-            <ion-icon aria-hidden="true" :icon="triangle" />
+          <!-- <ion-tab-button tab="login" href="/md-house/login">
+            <ion-icon aria-hidden="true" :icon="people" />
             <ion-label>Inicio Sesion</ion-label>
+          </ion-tab-button> -->
+  
+          <ion-tab-button tab="burger" href="/md-house/burger">
+            <ion-icon aria-hidden="true" :icon="restaurant" />
+            <ion-label>Hamburguesas</ion-label>
           </ion-tab-button>
   
-          <ion-tab-button tab="locales" href="/md-house/locales">
-            <ion-icon aria-hidden="true" :icon="ellipse" />
-            <ion-label>Locales</ion-label>
-          </ion-tab-button>
-  
-          <ion-tab-button tab="restaurante" href="/md-house/restaurante">
-            <ion-icon aria-hidden="true" :icon="square" />
-            <ion-label>Restaurante</ion-label>
+          <ion-tab-button tab="pollo" href="/md-house/pollo">
+            <ion-icon aria-hidden="true" :icon="bonfire" />
+            <ion-label>Pollo</ion-label>
           </ion-tab-button>
 
-          <ion-tab-button tab="menu" href="/md-house/menu">
-            <ion-icon aria-hidden="true" :icon="square" />
-            <ion-label>Menu</ion-label>
-          </ion-tab-button>
-
-          <ion-tab-button tab="reservacion" href="/md-house/reservacion">
-            <ion-icon aria-hidden="true" :icon="square" />
-            <ion-label>Reservacion</ion-label>
+          <ion-tab-button tab="pizza" href="/md-house/pizza">
+            <ion-icon aria-hidden="true" :icon="pizza" />
+            <ion-label>Pizza</ion-label>
           </ion-tab-button>
 
         </ion-tab-bar>
@@ -43,6 +38,6 @@
   
   <script setup>
   import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
-  import { ellipse, square, triangle } from 'ionicons/icons';
+  import { restaurant, pizza, people , bonfire, home} from 'ionicons/icons';
   </script>
   
