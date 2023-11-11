@@ -7,12 +7,15 @@ import TabsPage from '../views/TabsPage.vue'
 import LoginView from "../views/LoginView.vue"
 
 const routes = [
- 
+  {
+    path: "/",
+    name: "login",
+    component: LoginView
+  },
   {
     path: '/md-house/',
     component: TabsPage,
     children: [
-    
       {
         path: 'inicio',
         component: InicioView
@@ -30,17 +33,7 @@ const routes = [
         component: PizzaView
       },
     ]
-  },
-
-  {
-    path: "/",
-    redirect: "/md-house/login",
-    component:'LoginView'
-  },
-
-
-  
-
+  }
 ]
 
 const router = createRouter({
