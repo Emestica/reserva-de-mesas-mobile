@@ -5,7 +5,7 @@
          <ion-title>Los mejores restaurantes de pizza</ion-title>
        </ion-toolbar>
      </ion-header>
-   
+     <ion-content class="container">
      
      <ion-row>
       
@@ -31,7 +31,7 @@
 
       <br><br>
       </ion-row>
-
+    </ion-content>
 </ion-page>
 </template>
 
