@@ -9,7 +9,7 @@
     <ion-content>
       <ion-card class="Login">
         <ion-card-header>
-          <ion-title class="centered-title">Bienvenido</ion-title>
+          <ion-title class="centered-title">Bienvenid@</ion-title>
         </ion-card-header>
 
         <ion-card-content>
