@@ -9,7 +9,7 @@
     <ion-content>
       <ion-card class="Login">
         <ion-card-header>
-          <ion-title class="centered-title">Bienvenid@</ion-title>
+          <ion-title class="centered-title">Bienvenido</ion-title>
         </ion-card-header>
 
         <ion-card-content>
@@ -22,7 +22,8 @@
             <ion-input type="password" placeholder="  Contraseña">  <ion-icon :icon="lockClosed"></ion-icon></ion-input>
           </ion-item>
           <br>
-          <ion-button full color="primary" @click="goToPage()" class="card-button" to="/inicio">Iniciar sesión</ion-button>
+          <ion-button full color="primary" @click="goToPage()" class="card-button" to="/inicio" >Iniciar sesión</ion-button>
+          <ion-button full color="primary" @click="goToPage()" class="card-button" to="/pollo" href="/md-house/inicio">Registrarse</ion-button>
         </ion-card-content>
 
         
