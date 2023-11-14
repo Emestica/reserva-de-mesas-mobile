@@ -146,13 +146,13 @@
 <script>
 import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent,
         IonCard, IonCardContent,IonCardHeader, IonCardSubtitle,
-        IonGrid, IonRow,IonCol,IonInput,IonItem,IonSelect,IonButton
+        IonGrid, IonRow,IonCol,IonInput,IonItem,IonSelect,IonButton,IonSelectOption
 } from "@ionic/vue"
 export default{
     name:'ReservacionView',
     components:{
         IonPage, IonHeader, IonToolbar,IonContent, IonCard, IonCardContent,IonCardHeader, IonCardSubtitle, IonTitle, IonGrid,
-        IonRow,IonCol,IonInput,IonItem,IonSelect,IonButton
+        IonRow,IonCol,IonInput,IonItem,IonSelect,IonButton,IonSelectOption
 
     }
 }
