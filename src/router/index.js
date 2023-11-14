@@ -3,8 +3,10 @@ import InicioView from "../views/Cliente/InicioView.vue"
 import BurgerView from "../views/Cliente/BurgerView.vue"
 import PolloView from "../views/Cliente/PolloView.vue"
 import PizzaView from "../views/Cliente/PizzaView.vue"
+import ReservacionView from "../views/Cliente/ReservacionView.vue"
 import TabsPage from '../views/TabsPage.vue'
 import LoginView from "../views/LoginView.vue"
+
 
 const routes = [
   {
@@ -31,6 +33,10 @@ const routes = [
       {
         path: 'pizza',
         component: PizzaView
+      },
+      {
+        path: 'reservacion',
+        component: ReservacionView
       },
     ]
   }
