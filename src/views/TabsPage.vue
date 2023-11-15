@@ -30,6 +30,11 @@
             <ion-icon aria-hidden="true" :icon="pizza" />
             <ion-label>Pizza</ion-label>
           </ion-tab-button>
+          <ion-tab-button tab="Reservacion" href="/md-house/reservacion">
+            <ion-icon aria-hidden="true" :icon="calendar" />
+            <ion-label>Reservacion</ion-label>
+          </ion-tab-button>
+
 
         </ion-tab-bar>
       </ion-tabs>
@@ -38,6 +43,6 @@
   
   <script setup>
   import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
-  import { restaurant, pizza, people , bonfire, home} from 'ionicons/icons';
+  import { restaurant, pizza, people , bonfire, home, calendar} from 'ionicons/icons';
   </script>
   
