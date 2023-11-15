@@ -2,14 +2,14 @@
   <ion-page>
      <ion-header >
        <ion-toolbar>
-         <ion-title>Los mejores restaurantes de pizza</ion-title>
+         <ion-title>Las mejores pizzas</ion-title>
        </ion-toolbar>
      </ion-header>
    
-     
+     <ion-content>
      <ion-row>
       
-      <ion-card class="item1" to="/burger">
+      <ion-card class="item1" @click="goToPage1()">
         <ion-card-header><br><br>
           <ion-card-title class="title">Pizza Hut</ion-card-title><br><br>
         </ion-card-header>
@@ -19,7 +19,7 @@
       </ion-card>
       <br><br>
 
-      <ion-card class="item2" @click="goToPage1()" to="/Restaurante">
+      <ion-card class="item2" @click="goToPage2()">
         <ion-card-header><br><br>
           <ion-card-title class="title">Dominos Pizza</ion-card-title><br><br>
         </ion-card-header>
@@ -31,18 +31,30 @@
 
       <br><br>
       </ion-row>
+    </ion-content>
 
 </ion-page>
 </template>
 
 <script>
-import {IonPage,IonHeader,IonToolbar,IonTitle} from '@ionic/vue'
+import {IonPage,IonHeader,IonToolbar,IonTitle,IonContent,
+  IonCard,IonRow,IonCardHeader,IonCardContent,IonCardTitle} from '@ionic/vue'
 
 export default{
     name:'PizzaView',
     components:{
-        IonPage,IonHeader,IonToolbar,IonTitle
+      IonPage,IonHeader,IonToolbar,IonTitle,IonContent,
+      IonCard,IonRow,IonCardHeader,IonCardContent,IonCardTitle
+    },
+    methods:{
+        goToPage1() {
+      this.$router.push('/pizzahut');
+        },
+      
+      goToPage2() {
+      this.$router.push('/dominos');
     }
+  }
 }
 </script>
 

@@ -2,13 +2,14 @@
   <ion-page>
       <ion-header>
           <ion-toolbar>
-              <ion-title> Los mejores restaurantes </ion-title>
+              <ion-title> Las mejores hamburguesas </ion-title>
           </ion-toolbar>
       </ion-header>
 
+      <ion-content>
       <ion-row>
         
-        <ion-card class="item1" to="/burger">
+        <ion-card class="item1" @click="goToPage1()">
           <ion-card-header><br><br>
             <ion-card-title class="title">Comida Gorda</ion-card-title><br><br>
           </ion-card-header>
@@ -18,7 +19,7 @@
         </ion-card>
         <br><br>
 
-        <ion-card class="item2" @click="goToPage1()" to="/Restaurante">
+        <ion-card class="item2" @click="goToPage2()" to="/Restaurante">
           <ion-card-header><br><br>
             <ion-card-title class="title">Mike's Burgers</ion-card-title><br><br>
           </ion-card-header>
@@ -30,19 +31,30 @@
 
         <br><br>
         </ion-row>
-
+      </ion-content>
   </ion-page>
   </template>
   
   <script>
-  import {IonPage,IonHeader,IonToolbar,IonTitle} from '@ionic/vue'
+  import {IonPage,IonHeader,IonToolbar,IonTitle,IonContent,
+  IonCard,IonRow,IonCardHeader,IonCardContent,IonCardTitle} from '@ionic/vue'
   
   export default{
       name:'BurgerView',
       components:{
-          IonPage,IonHeader,IonToolbar,IonTitle
-      }
+        IonPage,IonHeader,IonToolbar,IonTitle,IonContent,
+  IonCard,IonRow,IonCardHeader,IonCardContent,IonCardTitle
+      },
+      methods:{
+        goToPage1() {
+      this.$router.push('/comidagorda');
+        },
+      
+      goToPage2() {
+      this.$router.push('/mikeburger');
+    }
   }
+}
   </script>
   
   <style>
