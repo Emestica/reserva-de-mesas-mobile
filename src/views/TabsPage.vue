@@ -43,6 +43,6 @@
   
   <script setup>
   import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
-  import { restaurant, pizza, people , bonfire, home} from 'ionicons/icons';
+  import { restaurant, pizza, people , bonfire, home, calendar} from 'ionicons/icons';
   </script>
   
