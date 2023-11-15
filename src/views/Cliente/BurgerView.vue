@@ -6,7 +6,8 @@
           </ion-toolbar>
       </ion-header>
 
-      <ion-content>
+      <ion-content class="container">
+
       <ion-row>
         
         <ion-card class="item1" @click="goToPage1()">
@@ -36,14 +37,31 @@
   </template>
   
   <script>
-  import {IonPage,IonHeader,IonToolbar,IonTitle,IonContent,
-  IonCard,IonRow,IonCardHeader,IonCardContent,IonCardTitle} from '@ionic/vue'
+
+
+
+  import {
+    IonPage,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonRow,
+    IonCol,
+    IonCard,
+    IonCardHeader,
+    IonCardContent,
+    IonCardTitle,
+    IonCardSubtitle
+  } from '@ionic/vue'
+
   
   export default{
       name:'BurgerView',
       components:{
+
         IonPage,IonHeader,IonToolbar,IonTitle,IonContent,
-  IonCard,IonRow,IonCardHeader,IonCardContent,IonCardTitle
+    IonCard,IonRow,IonCardHeader,IonCardContent,IonCardTitle
       },
       methods:{
         goToPage1() {
@@ -54,6 +72,7 @@
       this.$router.push('/mikeburger');
     }
   }
+
 }
   </script>
   

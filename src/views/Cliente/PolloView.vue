@@ -36,12 +36,30 @@
   </template>
   
   <script>
+
   import {IonPage,IonHeader,IonToolbar,IonTitle,IonContent,
   IonCard,IonRow,IonCardHeader,IonCardContent,IonCardTitle} from '@ionic/vue'
+
+  import {
+    IonPage,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonRow,
+    IonCol,
+    IonCard,
+    IonCardHeader,
+    IonCardContent,
+    IonCardTitle,
+    IonCardSubtitle
+  } from '@ionic/vue'
+
   
   export default{
       name:'PolloView',
       components:{
+
           IonPage,IonHeader,IonToolbar,IonTitle,IonContent,IonCard,IonRow,IonCardHeader,IonCardContent,IonCardTitle
       },
       methods:{
@@ -52,8 +70,22 @@
        goToPage2() {
       this.$router.push('/campestre');
        },
+
+        IonPage,
+        IonHeader,
+        IonToolbar,
+        IonTitle,
+        IonContent,
+        IonRow,
+        IonCol,
+        IonCard,
+        IonCardHeader,
+        IonCardContent,
+        IonCardTitle,
+        IonCardSubtitle
+      }
   }
-}
+
   </script>
   
   <style scoped>

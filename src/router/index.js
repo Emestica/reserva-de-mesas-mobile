@@ -13,6 +13,7 @@ import DominosView from "../views/Pizzas/DominosView.vue"
 
 const routes = [
 
+
   {
     path: '/',
     component:LoginView
@@ -67,6 +68,35 @@ const routes = [
 
 
   
+
+
+  // {
+  //   path: "/",
+  //   name: "login",
+  //   component: LoginView
+  // },
+  // {
+  //   path: '/md-house/',
+  //   component: TabsPage,
+  //   children: [
+  //     {
+  //       path: 'inicio',
+  //       component: InicioView
+  //     },
+  //     {
+  //       path: 'burger',
+  //       component: BurgerView
+  //     },
+  //     {
+  //       path: 'pollo',
+  //       component: PolloView
+  //     }, 
+  //     {
+  //       path: 'pizza',
+  //       component: PizzaView
+  //     },
+  //   ]
+  // }
 
 ]
 

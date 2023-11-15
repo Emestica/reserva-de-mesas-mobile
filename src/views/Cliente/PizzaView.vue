@@ -37,12 +37,29 @@
 </template>
 
 <script>
+
 import {IonPage,IonHeader,IonToolbar,IonTitle,IonContent,
   IonCard,IonRow,IonCardHeader,IonCardContent,IonCardTitle} from '@ionic/vue'
+
+import {IonPage,
+        IonHeader,
+        IonToolbar,
+        IonTitle,
+        IonContent,
+        IonRow,
+        IonCol,
+        IonCard,
+        IonCardHeader,
+        IonCardContent,
+        IonCardTitle,
+        IonCardSubtitle
+      } from '@ionic/vue'
+
 
 export default{
     name:'PizzaView',
     components:{
+
       IonPage,IonHeader,IonToolbar,IonTitle,IonContent,
       IonCard,IonRow,IonCardHeader,IonCardContent,IonCardTitle
     },
@@ -53,6 +70,20 @@ export default{
       
       goToPage2() {
       this.$router.push('/dominos');
+
+      IonPage,
+        IonHeader,
+        IonToolbar,
+        IonTitle,
+        IonContent,
+        IonRow,
+        IonCol,
+        IonCard,
+        IonCardHeader,
+        IonCardContent,
+        IonCardTitle,
+        IonCardSubtitle
+
     }
   }
 }
