@@ -2,14 +2,14 @@
     <ion-page>
        <ion-header >
          <ion-toolbar>
-           <ion-title>Los mejores restaurantes de pollo</ion-title>
+           <ion-title>Lo mejor en pollo frito</ion-title>
          </ion-toolbar>
        </ion-header>
      
-       
+       <ion-content>
        <ion-row>
         
-        <ion-card class="item1" to="/burger">
+        <ion-card class="item1" @click="goToPage1()">
           <ion-card-header><br><br>
             <ion-card-title class="title">Pollo Campero</ion-card-title><br><br>
           </ion-card-header>
@@ -19,7 +19,7 @@
         </ion-card>
         <br><br>
 
-        <ion-card class="item2" @click="goToPage1()" to="/Restaurante">
+        <ion-card class="item2" @click="goToPage2()" to="/Restaurante">
           <ion-card-header><br><br>
             <ion-card-title class="title">Pollo Campestre</ion-card-title><br><br>
           </ion-card-header>
@@ -31,11 +31,15 @@
 
         <br><br>
         </ion-row>
-
+      </ion-content>
   </ion-page>
   </template>
   
   <script>
+
+  import {IonPage,IonHeader,IonToolbar,IonTitle,IonContent,
+  IonCard,IonRow,IonCardHeader,IonCardContent,IonCardTitle} from '@ionic/vue'
+
   import {
     IonPage,
     IonHeader,
@@ -50,10 +54,23 @@
     IonCardTitle,
     IonCardSubtitle
   } from '@ionic/vue'
+
   
   export default{
       name:'PolloView',
       components:{
+
+          IonPage,IonHeader,IonToolbar,IonTitle,IonContent,IonCard,IonRow,IonCardHeader,IonCardContent,IonCardTitle
+      },
+      methods:{
+        goToPage1() {
+      this.$router.push('/campero');
+       },
+
+       goToPage2() {
+      this.$router.push('/campestre');
+       },
+
         IonPage,
         IonHeader,
         IonToolbar,
@@ -68,6 +85,7 @@
         IonCardSubtitle
       }
   }
+
   </script>
   
   <style scoped>

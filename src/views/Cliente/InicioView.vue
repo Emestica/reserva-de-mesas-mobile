@@ -9,20 +9,20 @@
       <ion-content class="container">
   <ion-grid>
     <ion-row>
-          <ion-searchbar
+          <!-- <ion-searchbar
             class="ion-no-padding ion-padding-top"
             color="ligth"
             placehaolder="Escriba que desea buscar"
             fill="solid"
             type="text"
             v-model="texto"
-          ></ion-searchbar>
+          ></ion-searchbar> -->
   
 
         </ion-row><br>
     <ion-row>
         
-        <ion-card class="item1" @click="goToPage1()" to="/burger">
+        <ion-card class="item1" @click="goToPage1()">
           <ion-card-header><br><br>
             <ion-card-title class="title">Hamburguesas</ion-card-title><br><br>
           </ion-card-header>
@@ -32,7 +32,7 @@
         </ion-card>
         <br><br>
 
-        <ion-card class="item2" @click="goToPage1()" to="/Restaurante">
+        <ion-card class="item2" @click="goToPage2()">
           <ion-card-header><br><br>
             <ion-card-title class="title">Pizzas</ion-card-title><br><br>
           </ion-card-header>
@@ -42,7 +42,7 @@
         </ion-card>
         <br><br>
 
-        <ion-card class="item3" @click="goToPage1()" to="/Restaurante">
+        <ion-card class="item3" @click="goToPage3()" >
           <ion-card-header><br><br>
             <ion-card-title class="title">Pollo</ion-card-title><br><br>
           </ion-card-header>
@@ -134,19 +134,16 @@ export default{
       
     },
     goToPage2() {
-      this.$router.push('/Reservacion');
+      this.$router.push('/pizza');
       
     },
     goToPage3() {
-      this.$router.push('/Locales');
+      this.$router.push('/pollo');
       
     },
-    goToPage4() {
-      this.$router.push('/Menu');
-      
-    }
-
     
+
+
 
 
     }
