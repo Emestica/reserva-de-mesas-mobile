@@ -2,13 +2,13 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Reservacion</ion-title>
+        <ion-title>RESERVACION</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
       <ion-card>
         <ion-card-header>
-          <ion-card-subtitle>CREAR RESERVACION</ion-card-subtitle>
+          <ion-card-subtitle class="Title1">CREAR RESERVACION</ion-card-subtitle>
         </ion-card-header>
 
         <ion-card-content>
@@ -89,56 +89,7 @@
 
         </ion-card-content>
       </ion-card>
-      <br>
-      <h1>Mis Reservaciones</h1>
-      <ion-row>
-
-        <ion-col>
-          <ion-card>
-            <ion-card-header>
-              <ion-card-subtitle>RESERVACIONES</ion-card-subtitle>
-            </ion-card-header>
-
-            <ion-card-content>
-              <ion-list>
-                <ion-list-header>
-                  <ion-label>Codigo Reservacion: RES0002</ion-label>
-                </ion-list-header>
-                <ion-item>
-                  <ion-label>Mesa: </ion-label>
-                </ion-item>
-                <ion-item>
-                  <ion-label>Nombre: </ion-label>
-                </ion-item>
-                <ion-item>
-                  <ion-label>Codigo Reservacion: </ion-label>
-                </ion-item>
-                <ion-item>
-                  <ion-label>Fecha: </ion-label>
-                </ion-item>
-                <ion-item>
-                  <ion-label>Hora Inicio: </ion-label>
-                </ion-item>
-                <ion-item>
-                  <ion-label>Hora Salida: </ion-label>
-                </ion-item>
-                <ion-item>
-                  <ion-label>Nota: </ion-label>
-                </ion-item>
-                <ion-item>
-                  <ion-label>Estado: </ion-label>
-                </ion-item>
-                <ion-item>
-                  <ion-label>Correo: </ion-label>
-                </ion-item>
-              </ion-list>
-            </ion-card-content>
-          </ion-card>
-
-        </ion-col>
-
-      </ion-row>
-
+      
       <ion-toast :duration="5000" :message="toastMessage" :is-open="toastState" @didDismiss="toastState = false"
         :icon="informationCircleOutline">
       </ion-toast>
@@ -261,9 +212,10 @@ ion-title {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
-ion-card-subtitle {
+.Title1 {
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
 }
 
 </style>
