@@ -11,6 +11,16 @@
             <ion-label>Inicio</ion-label>
           </ion-tab-button>
 
+          <ion-tab-button tab="hystory" href="/md-house/hystory">
+            <ion-icon aria-hidden="true" :icon="list" />
+            <ion-label>Mis Rerservaciones</ion-label>
+          </ion-tab-button>
+
+          <ion-tab-button tab="Reservacion" href="/md-house/reservacion">
+            <ion-icon aria-hidden="true" :icon="calendar" />
+            <ion-label>Reservacion</ion-label>
+          </ion-tab-button>
+
           <ion-tab-button tab="perfil" href="/md-house/perfil">
             <ion-icon aria-hidden="true" :icon="person" />
             <ion-label>Perfil</ion-label>
@@ -43,6 +53,6 @@
   
   <script setup>
   import { IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon, IonPage, IonRouterOutlet } from '@ionic/vue';
-  import { restaurant, pizza, people , bonfire, home, calendar} from 'ionicons/icons';
+  import { home, person, list, calendar } from 'ionicons/icons';
   </script>
   

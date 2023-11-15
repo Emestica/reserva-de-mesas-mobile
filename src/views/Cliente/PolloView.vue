@@ -1,14 +1,14 @@
 <template>
-    <ion-page>
-       <ion-header >
-         <ion-toolbar>
-           <ion-title>Lo mejor en pollo frito</ion-title>
-         </ion-toolbar>
-       </ion-header>
-     
-       <ion-content>
-       <ion-row>
-        
+  <ion-page>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Lo mejor en pollo frito</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-row>
+
         <ion-card class="item1" @click="goToPage1()">
           <ion-card-header><br><br>
             <ion-card-title class="title">Pollo Campero</ion-card-title><br><br>
@@ -30,66 +30,47 @@
         <br><br>
 
         <br><br>
-        </ion-row>
-      </ion-content>
+      </ion-row>
+    </ion-content>
   </ion-page>
-  </template>
+</template>
   
-  <script>
+<script>
+import {
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonRow,
+  IonCol,
+  IonCard,
+  IonCardHeader,
+  IonCardContent,
+  IonCardTitle,
+  IonCardSubtitle
+} from '@ionic/vue'
 
-  import {IonPage,IonHeader,IonToolbar,IonTitle,IonContent,
-  IonCard,IonRow,IonCardHeader,IonCardContent,IonCardTitle} from '@ionic/vue'
 
-  import {
-    IonPage,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonContent,
-    IonRow,
-    IonCol,
-    IonCard,
-    IonCardHeader,
-    IonCardContent,
-    IonCardTitle,
-    IonCardSubtitle
-  } from '@ionic/vue'
-
-  
-  export default{
-      name:'PolloView',
-      components:{
-
-          IonPage,IonHeader,IonToolbar,IonTitle,IonContent,IonCard,IonRow,IonCardHeader,IonCardContent,IonCardTitle
-      },
-      methods:{
-        goToPage1() {
+export default {
+  name: 'PolloView',
+  components: {
+    IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonRow, IonCardHeader, IonCardContent, IonCardTitle
+  },
+  methods: {
+    goToPage1() {
       this.$router.push('/campero');
-       },
+    },
 
-       goToPage2() {
+    goToPage2() {
       this.$router.push('/campestre');
-       },
-
-        IonPage,
-        IonHeader,
-        IonToolbar,
-        IonTitle,
-        IonContent,
-        IonRow,
-        IonCol,
-        IonCard,
-        IonCardHeader,
-        IonCardContent,
-        IonCardTitle,
-        IonCardSubtitle
-      }
+    },
   }
+}
 
-  </script>
+</script>
   
-  <style scoped>
-
+<style scoped>
 ion-row {
   display: flex;
   flex-direction: row;
@@ -137,8 +118,7 @@ ion-row {
 
 
 .item1:hover,
-.item2:hover
- {
+.item2:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
@@ -147,7 +127,6 @@ ion-row {
   font-weight: bold;
   color: black;
 }
-
 </style>
 
 

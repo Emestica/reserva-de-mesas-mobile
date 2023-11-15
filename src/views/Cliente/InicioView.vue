@@ -1,14 +1,13 @@
 <template>
-  
-    <ion-page>
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>INICIO</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="container">
-  <ion-grid>
-    <ion-row>
+  <ion-page>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>INICIO</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="container">
+      <ion-grid>
+        <ion-row>
           <!-- <ion-searchbar
             class="ion-no-padding ion-padding-top"
             color="ligth"
@@ -17,41 +16,41 @@
             type="text"
             v-model="texto"
           ></ion-searchbar> -->
-  
+
 
         </ion-row><br>
-    <ion-row>
-        
-        <ion-card class="item1" @click="goToPage1()">
-          <ion-card-header><br><br>
-            <ion-card-title class="title">Hamburguesas</ion-card-title><br><br>
-          </ion-card-header>
-          <ion-card-content>
-            <img src="/public/Hamburguesa.png" alt="Hamburguesa" />
-          </ion-card-content>
-        </ion-card>
-        <br><br>
+        <ion-row>
 
-        <ion-card class="item2" @click="goToPage2()">
-          <ion-card-header><br><br>
-            <ion-card-title class="title">Pizzas</ion-card-title><br><br>
-          </ion-card-header>
-          <ion-card-content>
-            <img src="/public/Pizza.png" alt="Hamburguesa" />
-          </ion-card-content>
-        </ion-card>
-        <br><br>
+          <ion-card class="item1" @click="goToPage1()">
+            <ion-card-header><br><br>
+              <ion-card-title class="title">Hamburguesas</ion-card-title><br><br>
+            </ion-card-header>
+            <ion-card-content>
+              <img src="/public/Hamburguesa.png" alt="Hamburguesa" />
+            </ion-card-content>
+          </ion-card>
+          <br><br>
 
-        <ion-card class="item3" @click="goToPage3()" >
-          <ion-card-header><br><br>
-            <ion-card-title class="title">Pollo</ion-card-title><br><br>
-          </ion-card-header>
-          <ion-card-content>
-            <img src="/public/Pollo.png" alt="Hamburguesa" />
-          </ion-card-content>
-        </ion-card>
-        <br><br>
-        <!-- <ion-col>
+          <ion-card class="item2" @click="goToPage2()">
+            <ion-card-header><br><br>
+              <ion-card-title class="title">Pizzas</ion-card-title><br><br>
+            </ion-card-header>
+            <ion-card-content>
+              <img src="/public/Pizza.png" alt="Hamburguesa" />
+            </ion-card-content>
+          </ion-card>
+          <br><br>
+
+          <ion-card class="item3" @click="goToPage3()">
+            <ion-card-header><br><br>
+              <ion-card-title class="title">Pollo</ion-card-title><br><br>
+            </ion-card-header>
+            <ion-card-content>
+              <img src="/public/Pollo.png" alt="Hamburguesa" />
+            </ion-card-content>
+          </ion-card>
+          <br><br>
+          <!-- <ion-col>
         <ion-card class="item2" @click="goToPage2()" to="/Reservacion">
           <ion-card-header>
             <ion-card-title class="title">Reservacion</ion-card-title>
@@ -80,80 +79,75 @@
           </ion-card-content>
         </ion-card>
     </ion-col> -->
-      
-    </ion-row>
-  </ion-grid>
-</ion-content>
 
-    </ion-page>
-  </template>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+
+  </ion-page>
+</template>
   
 
 <script>
 import {
-  IonPage, 
-  IonHeader, 
-  IonToolbar, 
-  IonTitle, 
-  IonContent, 
-  IonGrid, 
-  IonRow, 
-  IonCard, 
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonGrid,
+  IonRow,
+  IonCard,
   IonCardHeader,
   IonCardTitle,
   IonCardSubtitle,
   IonCardContent,
   IonCol,
-  IonSearchbar} from "@ionic/vue"
-export default{
-    name:"InicioView",
-    components:{
-        IonPage, 
-        IonHeader, 
-        IonToolbar, 
-        IonTitle, 
-        IonContent, 
-        IonGrid,
-        IonRow, 
-        IonCard,
-        IonCardHeader,
-        IonCardTitle,
-        IonCardSubtitle,
-        IonCardContent, 
-        IonCol, 
-        IonSearchbar
-    },
-    data(){
-      return {
-        texto: '',
-      }
-    },
-    methods:{
-        goToPage1() {
-      this.$router.push('/Burger');
-      
+  IonSearchbar
+} from "@ionic/vue"
+export default {
+  name: "InicioView",
+  components: {
+    IonPage,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonGrid,
+    IonRow,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardSubtitle,
+    IonCardContent,
+    IonCol,
+    IonSearchbar
+  },
+  data() {
+    return {
+      texto: '',
+    }
+  },
+  methods: {
+    goToPage1() {
+      this.$router.push('/md-house/Burger');
+
     },
     goToPage2() {
-      this.$router.push('/pizza');
-      
+      this.$router.push('/md-house/pizza');
+
     },
     goToPage3() {
-      this.$router.push('/pollo');
-      
+      this.$router.push('/md-house/pollo');
+
     },
-    
-
-
-
-
-    }
+  }
 }
 
 
 </script>
 
 <style>
-
 ion-row {
   display: flex;
   flex-direction: row;
@@ -227,6 +221,5 @@ ion-row {
   text-align: center;
   font-size: 24px;
 }
-
 </style>
 

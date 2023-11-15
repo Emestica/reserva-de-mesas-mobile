@@ -9,6 +9,7 @@ import PizzaView from "../views/Cliente/PizzaView.vue"
 import LoginView from "../views/LoginView.vue"
 
 import ReservacionView from "../views/Cliente/ReservacionView.vue"
+import HistoricoView from "../views/Cliente/HistoricoView.vue"
 
 import ComidaGorda from "../views/Burgers/ComidaGorda.vue"
 import CamperoView from "../views/Pollo/CamperoView.vue"
@@ -16,7 +17,6 @@ import CampestreView from "../views/Pollo/CampestreView.vue"
 import MikeView from "../views/Burgers/MikeBurger.vue"
 import HutView from "../views/Pizzas/PizzaHutView.vue"
 import DominosView from "../views/Pizzas/DominosView.vue"
-
 
 const routes = [
   {
@@ -49,6 +49,10 @@ const routes = [
         component: ReservacionView
       },
       {
+        path: '/hystory',
+        component: HistoricoView
+      },
+      {
         path: '/comidagorda',
         component:ComidaGorda
       },
@@ -71,7 +75,7 @@ const routes = [
       {
         path: '/dominos',
         component:DominosView
-      },
+      }
     ]
   }
 ]
