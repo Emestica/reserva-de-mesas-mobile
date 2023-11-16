@@ -25,9 +25,8 @@
 
                                                 <ion-buttons slot="end">
                                                     <ion-button color="tertiary"
-                                                    @click="showReservacion(item.id_reservacion,1)">
-                                                        <ion-icon slot="icon-only" :icon="eye"
-                                                           ></ion-icon>
+                                                        @click="showReservacion(item.id_reservacion, 1)">
+                                                        <ion-icon slot="icon-only" :icon="eye"></ion-icon>
                                                     </ion-button>
                                                 </ion-buttons>
                                             </ion-item>
@@ -67,26 +66,26 @@
                 <ion-list>
                     <ion-item>
                         <ion-icon slot="start" :icon="easel"></ion-icon>
-                        <ion-label>{{ Reservaciones.mesa }}</ion-label>
+                        <ion-label>{{ objetoReservacion.mesa }}</ion-label>
                     </ion-item>
 
                     <ion-item>
                         <ion-icon slot="start" :icon="calendarNumber"></ion-icon>
-                        <ion-label>{{ Reservaciones.fecha_reservacion }}</ion-label>
+                        <ion-label>{{ objetoReservacion.fecha_reservacion }}</ion-label>
                     </ion-item>
 
                     <ion-item>
                         <ion-icon slot="start" :icon="time"></ion-icon>
-                        <ion-label>{{ Reservaciones.hora_inicio }}</ion-label>
+                        <ion-label>{{ objetoReservacion.hora_inicio }}</ion-label>
                     </ion-item>
 
                     <ion-item>
                         <ion-icon slot="start" :icon="time"></ion-icon>
-                        <ion-label>{{ Reservaciones.hora_fin }}</ion-label>
+                        <ion-label>{{ objetoReservacion.hora_fin }}</ion-label>
                     </ion-item>
                     <ion-item>
                         <ion-icon slot="start" :icon="chatbox"></ion-icon>
-                        <ion-label>{{ Reservaciones.notas }}</ion-label>
+                        <ion-label>{{ objetoReservacion.notas }}</ion-label>
                     </ion-item>
 
                 </ion-list>
@@ -175,67 +174,71 @@ export default {
             ListaReservacion: [],
 
             ListaMesas: [],
-
-            Reservaciones:[],
-
-
-
-            header: {
+            objetoReservacion: {},
+            headerLoadData: {
                 params: {
-                    opcion: 3,
-                    idmenu:1,
-                    idreservacion:1,
-                    idrestaurante: 1
+                    opcion: 1,
+                    id_usuario_persona: 1
                 }
             },
-
-
         }
     },
     methods: {
         loadData() {
             this.ListaReservacion = []
-            axios.get('http://127.0.0.1:8000/api/get-reservaciones')
-                .then(response => {
-                    this.ListaReservacion = response.data.data;
-                })
-                .catch(error => console.log('Ha ocurrido un error' + error))
+            axios.get('http://127.0.0.1:8000/api/get-reservaciones', this.headerLoadData)
+            .then(response => {
+                console.log(response);
+                this.ListaReservacion = response.data.data;
+            })
+            .catch(error => {
+                console.log('Ha ocurrido un error' + error);
+            });
         },
         obtenerMesas() {
             axios.get('http://127.0.0.1:8000/api/get-mesas')
-                .then(response => {
-                    this.listadoMesas = response.data.data;
-                })
-                .catch(error => console.log('Ha ocurrido un error' + error))
+            .then(response => {
+                this.listadoMesas = response.data.data;
+            })
+            .catch(error => console.log('Ha ocurrido un error' + error))
         },
-        showReservacion(accion) {
+        showReservacion(idReservacion, accion) {
+            this.objetoReservacion = {};
 
-            axios.get(`http://127.0.0.1:8000/api/get-reservaciones`, this.header)
-                .then(
-                    response => {
-                        this.Reservaciones = response.data.data;
-                      
-                    })
-                .catch(error => log("Ha ocurrido un error: " + error))
-                if (accion==1) {
-                    this.modalState = true
-                    
+            let encabezado = {
+                params: {
+                    opcion: 3,
+                    id_reservacion: idReservacion,
+                    id_usuario_persona: 1,
                 }
+            };
 
+            axios.get(`http://127.0.0.1:8000/api/get-reservaciones`, encabezado)
+            .then(response => {
+
+                console.log("showReservacion() => response: ");
+                console.log(response);
+
+                if(response.data.success === true){
+                    this.objetoReservacion = response.data.data;
+                }else{
+                    console.log("showReservacion() => error-controlado:");
+                    console.log(response.data.data);
+                }
+            }).catch(error => {
+                console.log("showReservacion() => error-no-controlado:");
+                console.error(error);
+            });
+
+            if (accion == 1) {
+                this.modalState = true;
+            }
         },
-
-
     },
-
     //Se ejecuta a punto de moestrarse 
     ionViewDidEnter() {
         this.loadData();
         this.obtenerMesas();
-        this.showReservacion();
     }
 }
-
 </script>
-
-
-<style></style>
