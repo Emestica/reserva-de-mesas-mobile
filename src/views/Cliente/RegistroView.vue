@@ -2,6 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
+        <!--Boton para regresar a la vista anterior-->
         <ion-buttons slot="start">
           <ion-back-button default-href="/login"></ion-back-button>
         </ion-buttons>
@@ -17,27 +18,26 @@
 
         <ion-card-content>
           <img class="logo" src="/LogoP.png">
-          
+          <!--Campo de registro para nombres-->
             <ion-textarea fill="outline" type="text" placeholder="  Escribe tu nombre y apellido" 
             label="Usuario" label-placement="floating">
-
-
             </ion-textarea>
           
           <br>
+          <!--Campo de registro para el e-mail-->
             <ion-textarea ref="input" fill="outline" label="Email" label-placement="floating"
                 error-text="Correo invalido"  @ionInput="validate"
               @ionBlur="markTouched" placeholder="  Usuario" >
             
             </ion-textarea>
           <br>
-          
+          <!--Campo de registro para la password-->
             <ion-input fill="outline" type="password" placeholder="Escribe tu contrasenia" 
             :counter="true" maxlength="15" label="Contraseña" label-placement="floating"> 
             </ion-input>
           
           <ion-button full color="primary" @click="goToPage()" class="card-button"
-            href="/registro">Continuar</ion-button>
+            href="#">Continuar</ion-button>
         </ion-card-content>
 
 
