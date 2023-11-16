@@ -49,7 +49,7 @@ const routes = [
         component: ReservacionView
       },
       {
-        path: '/hystory',
+        path: 'hystory',
         component: HistoricoView
       },
       {
