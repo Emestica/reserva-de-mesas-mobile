@@ -1,12 +1,17 @@
 <template>
   
     <ion-page>
+      
       <ion-header>
         <ion-toolbar>
+          <ion-button fill="outline" href="http://localhost:8100/">
           <ion-title>INICIO</ion-title>
+        </ion-button>
+          
         </ion-toolbar>
       </ion-header>
       <ion-content class="container">
+        
   <ion-grid>
     <ion-row>
           <ion-searchbar
@@ -85,6 +90,8 @@
   </ion-grid>
 </ion-content>
 
+
+
     </ion-page>
   </template>
   
@@ -104,7 +111,12 @@ import {
   IonCardSubtitle,
   IonCardContent,
   IonCol,
-  IonSearchbar} from "@ionic/vue"
+  IonSearchbar,
+  IonMenu,
+  IonButton,
+  IonMenuButton,
+  IonIcon
+  } from "@ionic/vue"
 export default{
     name:"InicioView",
     components:{
@@ -121,7 +133,10 @@ export default{
         IonCardSubtitle,
         IonCardContent, 
         IonCol, 
-        IonSearchbar
+        IonSearchbar,
+        IonMenu,
+        IonButton,
+        IonMenuButton, IonIcon
     },
     data(){
       return {

@@ -3,6 +3,7 @@
     <ion-header>
       <ion-toolbar>
         <ion-title>Login</ion-title>
+        
       </ion-toolbar>
     </ion-header>
 
@@ -22,8 +23,8 @@
             <ion-input type="password" placeholder="  Contraseña">  <ion-icon :icon="lockClosed"></ion-icon></ion-input>
           </ion-item>
           <br>
-          <ion-button full color="primary" @click="goToPage()" class="card-button" to="/inicio" >Iniciar sesión</ion-button>
-          <ion-button full color="primary" @click="goToPage()" class="card-button" to="/pollo" href="/md-house/inicio">Registrarse</ion-button>
+          <ion-button full color="primary" @click="goToPage()" class="card-button" to="/inicio" href="/md-house/inicio">Iniciar sesión</ion-button>
+          <ion-button full color="primary" @click="goToPage()" class="card-button" to="/pollo" href="/registro">Registrarse</ion-button>
         </ion-card-content>
 
         
