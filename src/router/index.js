@@ -3,14 +3,30 @@ import InicioView from "../views/Cliente/InicioView.vue"
 import BurgerView from "../views/Cliente/BurgerView.vue"
 import PolloView from "../views/Cliente/PolloView.vue"
 import PizzaView from "../views/Cliente/PizzaView.vue"
+import RegistroView from "../views/Cliente/RegistroView.vue"
 import TabsPage from '../views/TabsPage.vue'
 import LoginView from "../views/LoginView.vue"
 
 const routes = [
   {
     path: "/",
-    name: "login",
-    component: LoginView
+    component: LoginView,
+    children: [
+      {
+        path:"login",
+        component: LoginView
+      },
+    ]
+  },
+  {
+    path: "/",
+    component: RegistroView,
+    children: [
+      {
+        path:"registro",
+        component: RegistroView
+      },
+    ]
   },
   {
     path: '/md-house/',
@@ -31,6 +47,14 @@ const routes = [
       {
         path: 'pizza',
         component: PizzaView
+      },
+      {
+        path: 'registro',
+        component: RegistroView
+      },
+      {
+        path:"login",
+        component: LoginView
       },
     ]
   }

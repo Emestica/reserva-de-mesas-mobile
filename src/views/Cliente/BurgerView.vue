@@ -27,10 +27,36 @@
           </ion-card-content>
         </ion-card>
         <br><br>
+        <ion-row>
+      
+      <ion-card class="item1" to="/burger">
+        <ion-card-header><br><br>
+          <ion-card-title class="title">Pizza Hut</ion-card-title><br><br>
+        </ion-card-header>
+        <ion-card-content>
+          <img src="/public/descarga.png" alt="Hut" />
+        </ion-card-content>
+      </ion-card>
+      <br><br>
 
+      <ion-card class="item2" @click="goToPage1()" to="/Restaurante">
+        <ion-card-header><br><br>
+          <ion-card-title class="title">Dominos Pizza</ion-card-title><br><br>
+        </ion-card-header>
+        <ion-card-content>
+          <img src="/public/Dominos.png" alt="Dominos" />
+        </ion-card-content>
+      </ion-card>
+      <br><br>
+
+      <br><br>
+      </ion-row>
         <br><br>
         </ion-row>
+
       </ion-content>
+
+      
   </ion-page>
   </template>
   
