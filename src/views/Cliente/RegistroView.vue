@@ -2,42 +2,58 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
+        
         <!--Boton para regresar a la vista anterior-->
         <ion-buttons slot="start">
           <ion-back-button default-href="/login"></ion-back-button>
+          <ion-title>Regresar</ion-title>
         </ion-buttons>
-        <ion-title>Registrate</ion-title>
+        
       </ion-toolbar>
     </ion-header>
 
     <ion-content>
-      <ion-card class="Login">
+      <ion-card class="Registro" >
         <ion-card-header>
-          <ion-title class="centered-title">Bienvenido</ion-title>
+          <ion-title class="centered-title">Coloca tus datos</ion-title>
         </ion-card-header>
 
-        <ion-card-content>
-          <img class="logo" src="/LogoP.png">
+        <ion-card-content color="warning">
+          <!--<img class="logo" src="/LogoP.png">-->
+
           <!--Campo de registro para nombres-->
-            <ion-textarea fill="outline" type="text" placeholder="  Escribe tu nombre y apellido" 
-            label="Usuario" label-placement="floating">
-            </ion-textarea>
-          
+          <ion-input fill="outline" type="text" placeholder="  Escribe tu nombre" label="Nombres"
+            label-placement="floating">
+          </ion-input>
+
           <br>
+          <!--Campo de registro para apellidos-->
+          <ion-input fill="outline" type="text" placeholder="  Escribe apellido" label="Apellidos"
+            label-placement="floating">
+          </ion-input>
+          <br>
+          <!--Campo de registro para el telefono-->
+          <ion-input fill="outline" type="tel" placeholder="  Escribe tu numero telefonico" label="Telefono"
+            label-placement="floating">
+          </ion-input>
+          <br>
+          
           <!--Campo de registro para el e-mail-->
-            <ion-textarea ref="input" fill="outline" label="Email" label-placement="floating"
-                error-text="Correo invalido"  @ionInput="validate"
-              @ionBlur="markTouched" placeholder="  Usuario" >
-            
-            </ion-textarea>
+          <ion-input ref="input" fill="outline" label="E-mail" label-placement="floating" error-text="Correo invalido"
+            @ionInput="validate" @ionBlur="markTouched" placeholder="  Escribe tu correo">
+
+          </ion-input>
           <br>
           <!--Campo de registro para la password-->
-            <ion-input fill="outline" type="password" placeholder="Escribe tu contrasenia" 
-            :counter="true" maxlength="15" label="Contraseña" label-placement="floating"> 
-            </ion-input>
-          
-          <ion-button full color="primary" @click="goToPage()" class="card-button"
-            href="#">Continuar</ion-button>
+          <ion-input fill="outline" type="password" placeholder="Escribe tu contrasenia" :counter="true" maxlength="15"
+            label="Contraseña" label-placement="floating" mode="">
+          </ion-input>
+          <!--Fecha de nacimiento-->
+          <ion-title>Fecha de nacimiento</ion-title>
+          <ion-datetime presentation="date" :prefer-wheel="true"></ion-datetime>
+
+          <!-- Boton para guardar los datos-->
+          <ion-button full color="primary" @click="goToPage()" class="card-button" href="#">Continuar</ion-button>
         </ion-card-content>
 
 
@@ -49,12 +65,9 @@
 <script>
 import {
   IonPage, IonHeader, IonToolbar, IonTitle, IonContent,
-  IonIcon,
-  IonCard,
-  IonCardHeader,
-  IonCardTitle,
-  IonCardSubtitle,
-  IonCardContent, IonItem, IonInput, IonButton, IonImg, IonButtons, IonBackButton, IonTextarea
+  IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle,
+  IonCardContent, IonItem, IonInput, IonButton, IonImg, IonButtons, 
+  IonBackButton, IonTextarea, IonDatetimeButton, IonDatetime, IonModal
 } from "@ionic/vue";
 import { person, lockClosed, mail } from "ionicons/icons"
 import { defineComponent } from 'vue';
@@ -62,24 +75,10 @@ import { defineComponent } from 'vue';
 export default defineComponent({
   name: "RegistroView",
   components: {
-    IonPage,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonContent,
-    IonIcon,
-    IonCard,
-    IonCardHeader,
-    IonCardTitle,
-    IonCardSubtitle,
-    IonCardContent,
-    IonItem,
-    IonInput,
-    IonButton,
-    IonImg,
-    IonButtons,
-    IonBackButton,
-    IonTextarea
+    IonPage, IonHeader, IonToolbar, IonTitle, IonContent,
+    IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle,
+    IonCardContent, IonItem, IonInput, IonButton, IonImg, IonButtons,
+    IonBackButton, IonTextarea, IonDatetimeButton, IonDatetime, IonModal
   },
   data() {
     return {
@@ -93,6 +92,7 @@ export default defineComponent({
       this.$router.push('/registro');
     },
     validateEmail(email) {
+      //Funcion para la simbologia del correo y muestre error
       return email.match(
         /^(?=.{1,254}$)(?=.{1,64}@)[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
       );
@@ -119,7 +119,7 @@ export default defineComponent({
 </script>
   
 <style scoped>
-.Login {
+.Registro {
   background-color: #ffffff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
@@ -161,5 +161,6 @@ ion-title {
   text-align: center;
 
 }
+
 </style>
   
