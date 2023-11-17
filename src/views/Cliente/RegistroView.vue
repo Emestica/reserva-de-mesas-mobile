@@ -33,7 +33,7 @@
           </ion-input>
           <br>
           <!--Campo de registro para el telefono-->
-          <ion-input fill="outline" type="tel" placeholder="  Escribe tu numero telefonico" label="Telefono"
+          <ion-input fill="outline" type="number" placeholder="  Escribe tu numero telefonico" label="Telefono"
             label-placement="floating">
           </ion-input>
           <br>
@@ -48,8 +48,10 @@
           <ion-input fill="outline" type="password" placeholder="Escribe tu contrasenia" :counter="true" maxlength="15"
             label="Contraseña" label-placement="floating" mode="">
           </ion-input>
+          <br>
           <!--Fecha de nacimiento-->
           <ion-title>Fecha de nacimiento</ion-title>
+          <br>
           <ion-datetime presentation="date" :prefer-wheel="true"></ion-datetime>
 
           <!-- Boton para guardar los datos-->
