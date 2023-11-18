@@ -1,15 +1,15 @@
 <template>
-    <ion-page>
-       <ion-header >
-         <ion-toolbar>
-           <ion-title>Los mejores restaurantes de pollo</ion-title>
-         </ion-toolbar>
-       </ion-header>
-     
-       <ion-content class="container">
-       <ion-row>
-        
-        <ion-card class="item1" to="/burger">
+  <ion-page>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Lo mejor en pollo frito</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="container">
+      <ion-row>
+
+        <ion-card class="item1" @click="goToPage1()">
           <ion-card-header><br><br>
             <ion-card-title class="title">Pollo Campero</ion-card-title><br><br>
           </ion-card-header>
@@ -19,7 +19,7 @@
         </ion-card>
         <br><br>
 
-        <ion-card class="item2" @click="goToPage1()" to="/Restaurante">
+        <ion-card class="item2" @click="goToPage2()" to="/Restaurante">
           <ion-card-header><br><br>
             <ion-card-title class="title">Pollo Campestre</ion-card-title><br><br>
           </ion-card-header>
@@ -30,48 +30,47 @@
         <br><br>
 
         <br><br>
-        </ion-row>
-      </ion-content>
+      </ion-row>
+    </ion-content>
   </ion-page>
-  </template>
+</template>
   
-  <script>
-  import {
-    IonPage,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonContent,
-    IonRow,
-    IonCol,
-    IonCard,
-    IonCardHeader,
-    IonCardContent,
-    IonCardTitle,
-    IonCardSubtitle
-  } from '@ionic/vue'
-  
-  export default{
-      name:'PolloView',
-      components:{
-        IonPage,
-        IonHeader,
-        IonToolbar,
-        IonTitle,
-        IonContent,
-        IonRow,
-        IonCol,
-        IonCard,
-        IonCardHeader,
-        IonCardContent,
-        IonCardTitle,
-        IonCardSubtitle
-      }
-  }
-  </script>
-  
-  <style scoped>
+<script>
+import {
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonRow,
+  IonCol,
+  IonCard,
+  IonCardHeader,
+  IonCardContent,
+  IonCardTitle,
+  IonCardSubtitle
+} from '@ionic/vue'
 
+
+export default {
+  name: 'PolloView',
+  components: {
+    IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonRow, IonCardHeader, IonCardContent, IonCardTitle
+  },
+  methods: {
+    goToPage1() {
+      this.$router.push('/campero');
+    },
+
+    goToPage2() {
+      this.$router.push('/campestre');
+    },
+  }
+}
+
+</script>
+  
+<style scoped>
 ion-row {
   display: flex;
   flex-direction: row;
@@ -119,8 +118,7 @@ ion-row {
 
 
 .item1:hover,
-.item2:hover
- {
+.item2:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
@@ -129,7 +127,6 @@ ion-row {
   font-weight: bold;
   color: black;
 }
-
 </style>
 
 
