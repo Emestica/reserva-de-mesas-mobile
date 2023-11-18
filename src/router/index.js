@@ -18,11 +18,18 @@ import MikeView from "../views/Burgers/MikeBurger.vue"
 import HutView from "../views/Pizzas/PizzaHutView.vue"
 import DominosView from "../views/Pizzas/DominosView.vue"
 
+import RegistroView from "../views/Cliente/RegistroView.vue"
+
 const routes = [
   {
     path: "/",
     name: "login",
     component: LoginView
+  },
+  {
+    path: "/register-user",
+    name: "register",
+    component: RegistroView
   },
   {
     path: '/md-house/',

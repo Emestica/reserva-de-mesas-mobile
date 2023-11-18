@@ -6,7 +6,7 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content>
+    <ion-content class="container">
       <ion-row>
 
         <ion-card class="item1" @click="goToPage1()">
