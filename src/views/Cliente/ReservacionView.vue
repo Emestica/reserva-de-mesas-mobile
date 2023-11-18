@@ -17,13 +17,25 @@
               <ion-col>
                 <ion-item>
 
-                  <ion-select label="Mesa" color="success" label-placement="stacked" clear-input="true" placeholder="Mesa"
-                    v-model="reservacion.id_mesa">
+                  <ion-select label="Resataurante" color="success" label-placement="stacked" clear-input="true"
+                    placeholder="Seleccione un restaurante" @ion-change="changeSelectRestaurante($event.detail.value)">
 
-                    <ion-select-option 
-                      v-for="item in listadoMesas" 
-                      :value="item.id_mesa">
-                      
+                    <ion-select-option v-for="item in listadoRestaurantes" :value="item.id_restaurante">
+
+                      {{ item.restaurante }}
+                    </ion-select-option>
+
+                  </ion-select>
+
+                </ion-item>
+                <br>
+                <ion-item>
+
+                  <ion-select label="Mesa" color="success" label-placement="stacked" clear-input="true"
+                    placeholder="Seleccione una mesa" v-model="reservacion.id_mesa">
+
+                    <ion-select-option v-for="item in listadoMesas" :value="item.id_mesa">
+
                       {{ item.mesa }}
                     </ion-select-option>
 
@@ -44,22 +56,12 @@
                 <br>
 
                 <ion-label>Hora Inicio:</ion-label>
-                <ion-datetime 
-                  presentation="time" 
-                  locale="es-ES"
-                  v-model="reservacion.hora_inicio" 
-                  hour-cycle="h24"
-                  min="08:00:00" max="21:00:00"
-                ></ion-datetime>
+                <ion-datetime presentation="time" locale="es-ES" v-model="reservacion.hora_inicio" hour-cycle="h24"
+                  min="08:00:00" max="21:00:00"></ion-datetime>
 
                 <ion-label>Hora Fin:</ion-label>
-                <ion-datetime 
-                  presentation="time" 
-                  locale="es-ES"
-                  v-model="reservacion.hora_fin" 
-                  hour-cycle="h24"
-                  min="08:00:00" max="21:00:00"
-                ></ion-datetime>
+                <ion-datetime presentation="time" locale="es-ES" v-model="reservacion.hora_fin" hour-cycle="h24"
+                  min="08:00:00" max="21:00:00"></ion-datetime>
 
                 <ion-input label="Nota" type="textarea" color="success" label-placement="stacked" rows="5" maxlength="255"
                   counter fill="outline" shape="round" clear-input="true" placeholder="Escriba su comentario aquí"
@@ -89,7 +91,7 @@
 
         </ion-card-content>
       </ion-card>
-      
+
       <ion-toast :duration="5000" :message="toastMessage" :is-open="toastState" @didDismiss="toastState = false"
         :icon="informationCircleOutline">
       </ion-toast>
@@ -104,8 +106,8 @@ import moment from "moment";
 import {
   IonPage, IonHeader, IonToolbar, IonTitle, IonContent,
   IonCard, IonCardContent, IonCardHeader, IonCardSubtitle,
-  IonGrid, IonRow, IonCol, IonInput, IonItem, IonSelect, 
-  IonButton, IonSelectOption, IonList, IonListHeader, 
+  IonGrid, IonRow, IonCol, IonInput, IonItem, IonSelect,
+  IonButton, IonSelectOption, IonList, IonListHeader,
   IonLabel, IonIcon, IonToast, IonDatetime
 } from "@ionic/vue"
 
@@ -116,26 +118,20 @@ export default {
   components: {
     IonPage, IonHeader, IonToolbar, IonContent, IonCard,
     IonCardContent, IonCardHeader, IonCardSubtitle, IonTitle,
-    IonGrid, IonRow, IonCol, IonInput, IonItem, IonSelect, 
-    IonButton, IonSelectOption, IonList, IonListHeader, 
+    IonGrid, IonRow, IonCol, IonInput, IonItem, IonSelect,
+    IonButton, IonSelectOption, IonList, IonListHeader,
     IonLabel, IonIcon, IonToast, IonDatetime
   },
   data() {
     return {
-      checkmarkOutline, 
+      checkmarkOutline,
       informationCircleOutline,
 
       // VARIABLE PARA LISTADO DE MESAS
-      listadoMesas: [],
+      listadoRestaurantes: [],
 
-      // VARIABLE PARA PARAMETROS DEL AXIOS GET
-      header:{
-        params:{
-          opcion: 1,
-          estado: 'A',
-          idrestaurante:  1
-        }
-      },
+      // VARIABLE PARA LISTADO DE MESAS
+      listadoMesas: [],
 
       //GUARDAR CONTENIDO DEL FORMULARIO
       reservacion: {},
@@ -144,14 +140,16 @@ export default {
       toastState: false,
 
       //Variable para guardar el mensaje
-      toastMessage: null
+      toastMessage: null,
+
+      id_user_person: null
     }
   },
   methods: {
     Reservar() {
-      this.reservacion.id_usuario_persona = 1;
+      this.reservacion.id_usuario_persona = this.id_user_person;
       this.reservacion.usuario_creacion = 'root';
-      
+
       let horaInicio = moment(this.reservacion.hora_inicio).format("HH:mm:ss");
       console.log(horaInicio);
 
@@ -165,48 +163,101 @@ export default {
 
       //Peticion para insertar datos
       axios.post('http://127.0.0.1:8000/api/save-reservacion', this.reservacion)
-      .then(response=>{
-        console.log('Reservar() => response');
-        console.log(response);
-        if(response.data.success === true){
-          this.toastState = true;
-          this.toastMessage = response.data.data;
-        }else{
-          console.error('Reservar() => error-controlado');
-          console.error(response.data.data);
-        }
-        this.reservacion ={}
-      })
-      .catch(error => {
-        console.error('Reservar() => error-no-controlado');
-        console.error(error);
-      });
+        .then(response => {
+          console.log('Reservar() => response');
+          console.log(response);
+          if (response.data.success === true) {
+            this.toastState = true;
+            this.toastMessage = response.data.data;
+          } else {
+            console.error('Reservar() => error-controlado');
+            console.error(response.data.data);
+          }
+          this.reservacion = {}
+        })
+        .catch(error => {
+          console.error('Reservar() => error-no-controlado');
+          console.error(error);
+        });
     },
-    obtenerMesasPorIdRestaurante(){
-      axios.get('http://127.0.0.1:8000/api/get-mesas', this.header)
-      .then(response => {
-        console.log(response);
-        if(response.data.success === true){
-          this.listadoMesas = response.data.data;
-        }else{
-          console.log('obtenerMesasPorIdRestaurante() => error-controlado: ');
-          console.log(response.data.data);
+    obtenerRestaurantesActivos() {
+
+      let headerRestaurant = {
+        params: {
+          opcion: 1,
+          estado: 'A'
         }
-      })
-      .catch(error => {
-        console.log('obtenerMesasPorIdRestaurante() => error-no-controlado: ');
-        console.error(error);
+      };
+
+      axios.get('http://127.0.0.1:8000/api/get-restaurantes', headerRestaurant)
+        .then(response => {
+          console.log(response);
+          if (response.data.success === true) {
+
+            this.listadoRestaurantes = response.data.data;
+
+          } else {
+
+            console.log('obtenerMesasPorIdRestaurante() => error-controlado: ');
+            console.log(response.data.data);
+
+          }
+        })
+        .catch(error => {
+          console.log('obtenerMesasPorIdRestaurante() => error-no-controlado: ');
+          console.error(error);
+        });
+    },
+    changeSelectRestaurante(id) {
+      this.obtenerMesasPorIdRestaurante(id);
+    },
+    obtenerMesasPorIdRestaurante(id) {
+      // VARIABLE PARA PARAMETROS DEL AXIOS GET
+      let headerMesas = {
+        params: {
+          opcion: 1,
+          estado: 'A',
+          idrestaurante: id
+        }
+      };
+
+      axios.get('http://127.0.0.1:8000/api/get-mesas', headerMesas)
+        .then(response => {
+          console.log(response);
+          if (response.data.success === true) {
+            this.listadoMesas = response.data.data;
+          } else {
+            console.log('obtenerMesasPorIdRestaurante() => error-controlado: ');
+            console.log(response.data.data);
+            this.listadoMesas = [];
+          }
+        })
+        .catch(error => {
+          console.log('obtenerMesasPorIdRestaurante() => error-no-controlado: ');
+          console.error(error);
+        });
+    },
+    async loadDataUserStorage() {
+      console.log('loadDataUserStorage() => init');
+
+      let strUser = await this.$storage.get('user').then(info => {
+        console.log('loadDataUserStorage() => then promise');
+        console.log(JSON.parse(info));
+        let myObject = JSON.parse(info);
+        this.id_user_person = myObject.id_user_person;
       });
+
+      console.log('loadDataUserStorage() => end');
     }
   },
-  ionViewWillEnter(){
-    this.obtenerMesasPorIdRestaurante();
+  ionViewWillEnter() {
+    this.loadDataUserStorage();
+    this.obtenerRestaurantesActivos();
   }
 }
 </script>
 
 <style>
-
 ion-title {
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
@@ -215,7 +266,5 @@ ion-title {
 .Title1 {
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-
 }
-
 </style>

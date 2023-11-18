@@ -49,6 +49,15 @@
                 </ion-row>
             </ion-grid>
         </ion-content>
+
+            <ion-toast 
+                :duration="toastDuration" 
+                :message="toastMessage" 
+                :is-open="toastState" 
+                @didDismiss="toastState = false"
+                :icon="informationCircleOutline">
+            </ion-toast>
+
         <ion-modal :is-open="modalState" @didDismiss="modalState = false">
             <ion-header>
                 <ion-toolbar>
@@ -117,7 +126,8 @@ import {
     IonItemOptions,
     IonModal,
     IonButtons,
-    IonButton
+    IonButton,
+    IonToast
 } from "@ionic/vue"
 import axios from "axios"
 import { calendar, eye, easel, closeCircle, time, checkmark, checkmarkOutline, informationCircleOutline, chatbox, calendarNumber } from "ionicons/icons"
@@ -146,11 +156,15 @@ export default {
         IonItemOptions,
         IonModal,
         IonButtons,
-        IonButton
-
+        IonButton,
+        IonToast
     },
     data() {
         return {
+            informationCircleOutline,
+            toastState: false,
+            toastDuration: 5000,
+            toastMessage: null,
             calendar,
             eye,
             easel,
@@ -181,15 +195,23 @@ export default {
                     id_usuario_persona: 1
                 }
             },
+            id_user_person: null
         }
     },
     methods: {
         loadData() {
-            this.ListaReservacion = []
+            this.ListaReservacion = [];
+            this.headerLoadData.params.id_usuario_persona = this.id_user_person;
             axios.get('http://127.0.0.1:8000/api/get-reservaciones', this.headerLoadData)
             .then(response => {
                 console.log(response);
-                this.ListaReservacion = response.data.data;
+                if(response.data.success === true){
+                    
+                    this.ListaReservacion = response.data.data;
+                }else{
+                    this.toastMessage = response.data.data;
+                    this.toastState = true;
+                }
             })
             .catch(error => {
                 console.log('Ha ocurrido un error' + error);
@@ -209,7 +231,7 @@ export default {
                 params: {
                     opcion: 3,
                     id_reservacion: idReservacion,
-                    id_usuario_persona: 1,
+                    id_usuario_persona: this.id_user_person,
                 }
             };
 
@@ -234,10 +256,23 @@ export default {
                 this.modalState = true;
             }
         },
+        async loadDataUserStorage(){
+            console.log('loadDataUserStorage() => init');
+
+            let strUser = await this.$storage.get('user').then(info => {
+                console.log('loadDataUserStorage() => then promise');
+                console.log(JSON.parse(info));
+                let myObject = JSON.parse(info);
+                this.id_user_person = myObject.id_user_person;
+                this.loadData();
+            });
+
+            console.log('loadDataUserStorage() => end');
+        }
     },
     //Se ejecuta a punto de moestrarse 
     ionViewDidEnter() {
-        this.loadData();
+        this.loadDataUserStorage();
         this.obtenerMesas();
     }
 }

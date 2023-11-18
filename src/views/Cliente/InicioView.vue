@@ -1,9 +1,7 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar>
-        <ion-title>INICIO</ion-title>
-      </ion-toolbar>
+      <ToolbarComponent title="Inicio"></ToolbarComponent>
     </ion-header>
     <ion-content class="container">
       <ion-grid>
@@ -89,6 +87,9 @@
   
 
 <script>
+
+import ToolbarComponent from "../../components/ToolbarComponent.vue";
+
 import {
   IonPage,
   IonHeader,
@@ -104,7 +105,8 @@ import {
   IonCardContent,
   IonCol,
   IonSearchbar
-} from "@ionic/vue"
+} from "@ionic/vue";
+
 export default {
   name: "InicioView",
   components: {
@@ -121,7 +123,8 @@ export default {
     IonCardSubtitle,
     IonCardContent,
     IonCol,
-    IonSearchbar
+    IonSearchbar,
+    ToolbarComponent
   },
   data() {
     return {
@@ -139,8 +142,20 @@ export default {
     },
     goToPage3() {
       this.$router.push('/md-house/pollo');
-
     },
+    async loadDataUserStorage(){
+      console.log('loadDataUserStorage() => init');
+
+      let strUser = await this.$storage.get('user').then(info => {
+        console.log('loadDataUserStorage() => then promise');
+        console.log(JSON.parse(info));
+      });
+
+      console.log('loadDataUserStorage() => end');
+    }
+  },
+  ionViewWillEnter(){
+    this.loadDataUserStorage();
   }
 }
 

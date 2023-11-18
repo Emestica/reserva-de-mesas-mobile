@@ -19,6 +19,8 @@ import HutView from "../views/Pizzas/PizzaHutView.vue"
 import DominosView from "../views/Pizzas/DominosView.vue"
 
 import RegistroView from "../views/Cliente/RegistroView.vue"
+import RegisterView from "../views/RegisterView.vue"
+import ProfileView from "../views/Cliente/ProfileView.vue"
 
 const routes = [
   {
@@ -29,6 +31,11 @@ const routes = [
   {
     path: "/register-user",
     name: "register",
+    component: RegisterView
+  },
+  {
+    path: "/registro-user",
+    name: "registro",
     component: RegistroView
   },
   {
@@ -58,6 +65,10 @@ const routes = [
       {
         path: 'hystory',
         component: HistoricoView
+      },
+      {
+        path: 'profile',
+        component: ProfileView
       },
       {
         path: '/comidagorda',

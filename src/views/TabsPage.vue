@@ -21,7 +21,7 @@
             <ion-label>Reservacion</ion-label>
           </ion-tab-button>
 
-          <ion-tab-button tab="perfil" href="/md-house/perfil">
+          <ion-tab-button tab="perfil" href="/md-house/profile">
             <ion-icon aria-hidden="true" :icon="person" />
             <ion-label>Perfil</ion-label>
           </ion-tab-button>
