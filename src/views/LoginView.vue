@@ -9,14 +9,13 @@
 
     <ion-content>
       <ion-card class="Login">
-        <ion-card-header>
-          <ion-title class="centered-title">Bienvenido</ion-title>
-        </ion-card-header>
+        
+        <div style="padding: 20px;">
+          <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/4/44/Madhouse_studio_logo.svg">
+        </div>
 
         <ion-card-content>
-          <img class="logo" src="/LogoP.png">
           <ion-item>
-
             <ion-input 
               type="text" 
               placeholder="Correo"
